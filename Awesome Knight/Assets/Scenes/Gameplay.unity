@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: d07d2172e76d3fa429e80a14d2ae3616, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -192,15 +192,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4233788714440580, guid: 2b175895e135cf64b80630c569d520ad, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 95158890418654144, guid: 2b175895e135cf64b80630c569d520ad,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 9f445b1997092a24a8c682ce5ee610f4, type: 2}
-    - target: {fileID: 1859009503832650, guid: 2b175895e135cf64b80630c569d520ad, type: 2}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -379,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorTexture: {fileID: 2800000, guid: b8e42ee6d1dd38143a8caa2dfe4fa58d, type: 3}
+  mousePoint: {fileID: 1701675947748504, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
 --- !u!1001 &905015415
 Prefab:
   m_ObjectHideFlags: 0
@@ -486,3 +478,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &2041937101
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4112216812552730, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.8182473
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112216812552730, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112216812552730, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112216812552730, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112216812552730, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112216812552730, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112216812552730, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112216812552730, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ac6b85277ade34f46b90d37f8fb6780e, type: 2}
+  m_IsPrefabParent: 0
