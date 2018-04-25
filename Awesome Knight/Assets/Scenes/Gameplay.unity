@@ -290,32 +290,32 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114269299279625966, guid: 2b175895e135cf64b80630c569d520ad,
         type: 2}
-      propertyPath: fillWaitImage_1
+      propertyPath: theFillImages.Array.data[0]
       value: 
       objectReference: {fileID: 1422915894}
     - target: {fileID: 114269299279625966, guid: 2b175895e135cf64b80630c569d520ad,
         type: 2}
-      propertyPath: fillWaitImage_2
+      propertyPath: theFillImages.Array.data[1]
       value: 
       objectReference: {fileID: 845558594}
     - target: {fileID: 114269299279625966, guid: 2b175895e135cf64b80630c569d520ad,
         type: 2}
-      propertyPath: fillWaitImage_3
+      propertyPath: theFillImages.Array.data[2]
       value: 
       objectReference: {fileID: 770349863}
     - target: {fileID: 114269299279625966, guid: 2b175895e135cf64b80630c569d520ad,
         type: 2}
-      propertyPath: fillWaitImage_4
+      propertyPath: theFillImages.Array.data[3]
       value: 
       objectReference: {fileID: 2146967949}
     - target: {fileID: 114269299279625966, guid: 2b175895e135cf64b80630c569d520ad,
         type: 2}
-      propertyPath: fillWaitImage_5
+      propertyPath: theFillImages.Array.data[4]
       value: 
       objectReference: {fileID: 1955748797}
     - target: {fileID: 114269299279625966, guid: 2b175895e135cf64b80630c569d520ad,
         type: 2}
-      propertyPath: fillWaitImage_6
+      propertyPath: theFillImages.Array.data[5]
       value: 
       objectReference: {fileID: 534781560}
     m_RemovedComponents: []

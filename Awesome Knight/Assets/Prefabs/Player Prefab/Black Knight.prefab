@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 143242949969363258}
   - component: {fileID: 114305232802028020}
   - component: {fileID: 114269299279625966}
+  - component: {fileID: 114219268241389904}
   m_Layer: 0
   m_Name: Black Knight
   m_TagString: Player
@@ -2066,6 +2067,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114219268241389904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859009503832650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835e65428a256e142be2aa7cf8bf5e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114269299279625966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2077,6 +2089,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31142108d89ff5047ad7886687e577ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theFillImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fadeTimes:
+  - 1
+  - 0.7
+  - 0.1
+  - 0.2
+  - 0.3
+  - 0.08
 --- !u!114 &114305232802028020
 MonoBehaviour:
   m_ObjectHideFlags: 1
