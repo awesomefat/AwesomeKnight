@@ -47,6 +47,7 @@ public class EnemyControl : MonoBehaviour
     // Use this for initialization
     void Awake ()
     {
+        this.playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
         this.nav_agent = this.GetComponent<NavMeshAgent>();
         this.anim = this.GetComponent<Animator>();
         this.charController = this.GetComponent<CharacterController>();
@@ -59,8 +60,11 @@ public class EnemyControl : MonoBehaviour
     {
 		if(this.enemy_CurrentState != EnemyState.DEATH)
         {
-            this.enemy_CurrentState = this.SetEnemyState();
-            if(this.finished_movement)
+            EnemyState tempCurrState = this.enemy_CurrentState;
+            this.enemy_CurrentState = this.SetEnemyState(this.enemy_CurrentState, this.enemy_LastState, this.enemy_to_player_distance);
+            this.enemy_LastState = tempCurrState;
+
+            if (this.finished_movement)
             {
                 this.GetStateControl(this.enemy_CurrentState);
             }
@@ -94,17 +98,115 @@ public class EnemyControl : MonoBehaviour
 
     EnemyState SetEnemyState(EnemyState currentState, EnemyState lastState, float enemyToPlayerDistance)
     {
+        enemyToPlayerDistance = Vector3.Distance(this.transform.position, this.playerTarget.position);
+
         float initialDistance = Vector3.Distance(this.initialPosition, this.transform.position);
-        if(initialDistance > this.follow_distance)
+        if (initialDistance > this.follow_distance)
         {
             lastState = currentState;
             currentState = EnemyState.GOBACK;
         }
+        else if (enemyToPlayerDistance <= this.attack_distance)
+        {
+            lastState = currentState;
+            currentState = EnemyState.ATTACK;
+        }
+        else if (enemyToPlayerDistance >= this.alert_attack_distance &&
+            lastState == EnemyState.PAUSE || lastState == EnemyState.ATTACK)
+        {
+            lastState = currentState;
+            currentState = EnemyState.PAUSE;
+        }
+        else if (enemyToPlayerDistance <= this.alert_attack_distance && enemyToPlayerDistance > this.attack_distance)
+        {
+            if (currentState != EnemyState.GOBACK || lastState == EnemyState.WALK)
+            {
+                lastState = currentState;
+                currentState = EnemyState.PAUSE;
+            }
+        }
+        else if (enemyToPlayerDistance > this.alert_attack_distance &&
+            lastState != EnemyState.GOBACK && lastState != EnemyState.PAUSE)
+        {
+            lastState = currentState;
+            currentState = EnemyState.WALK;
+        }
+        return currentState;
     }
 
-    void GetStateControl(EnemyState state)
+    void GetStateControl(EnemyState currState)
     {
+        if(currState == EnemyState.RUN || currState == EnemyState.PAUSE)
+        {
+            if(currState != EnemyState.ATTACK)
+            {
+                Vector3 targetPos = new Vector3(this.playerTarget.position.x, this.transform.position.y,
+                this.playerTarget.position.z);
 
+                if(Vector3.Distance(this.transform.position, targetPos) >= 2.1f)
+                {
+                    this.anim.SetBool("Walk", false);
+                    this.anim.SetBool("Run", true);
+                    this.nav_agent.SetDestination(targetPos);
+                } 
+            }   
+        }
+        else if(currState == EnemyState.ATTACK)
+        {
+            this.anim.SetBool("Run", false);
+            this.anim.SetBool("Attack", true);
+            this.where_to_move.Set(0f, 0f, 0f);
+            this.nav_agent.SetDestination(this.transform.position);
+            //this.transform.LookAt(this.playerTarget);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
+                Quaternion.LookRotation(this.playerTarget.position - this.transform.position),
+            5f * Time.deltaTime);
+
+            if(this.current_attack_time >= this.wait_attack_time)
+            {
+                int atkRange = Random.Range(1, 3);
+                this.anim.SetInteger("Atk", atkRange);
+                this.finished_animation = false;
+                this.current_attack_time = 0f;
+            }
+            else
+            {
+                this.anim.SetInteger("Atk", 0);
+                this.current_attack_time += Time.deltaTime;
+            }
+        }
+        else if(currState == EnemyState.GOBACK)
+        {
+            this.anim.SetBool("Run", true);
+            Vector3 targetPos = new Vector3(this.initialPosition.x, this.transform.position.y, this.initialPosition.z);
+            this.nav_agent.SetDestination(targetPos);
+
+            if(Vector3.Distance(this.initialPosition, this.transform.position) <= 3.5f)
+            {
+                this.enemy_LastState = currState;
+                currState = EnemyState.WALK;
+            }
+        }
+        else if(currState == EnemyState.WALK)
+        {
+            this.anim.SetBool("Run", false);
+            this.anim.SetBool("Walk", true);
+            if(Vector3.Distance(this.transform.position, this.where_to_navigate) <= 2f)
+            {
+                this.where_to_navigate.x = Random.Range(this.initialPosition.x - 5f, this.initialPosition.x + 5f);
+                this.where_to_navigate.z = Random.Range(this.initialPosition.z - 5f, this.initialPosition.z + 5f);
+            }
+            else
+            {
+                this.nav_agent.SetDestination(this.where_to_navigate);
+            }
+        }
+        else
+        {
+            this.anim.SetBool("Run", false);
+            this.anim.SetBool("Walk", false);
+            this.nav_agent.isStopped = true;
+        }
     }
 }
 
