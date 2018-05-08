@@ -599,7 +599,10 @@ GameObject:
   - component: {fileID: 95345927474142400}
   - component: {fileID: 143134373221630294}
   - component: {fileID: 195173162735289734}
-  m_Layer: 0
+  - component: {fileID: 114250987399521292}
+  - component: {fileID: 114095857985195350}
+  - component: {fileID: 114234880264383146}
+  m_Layer: 8
   m_Name: Skeleton
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -1400,6 +1403,48 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114095857985195350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958957802392072}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8d18b63a363ef4dbcae4334bebed66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_CurrentState: 0
+--- !u!114 &114234880264383146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958957802392072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7eacbe5dcd4b494baaa4357bc49c198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &114250987399521292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958957802392072}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb0819c3c5e9924c85352837c7fbcda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!137 &137313968680516114
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

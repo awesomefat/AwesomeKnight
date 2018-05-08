@@ -127,8 +127,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 400014}
-  - component: {fileID: 114810928705934544}
   - component: {fileID: 114553953610564076}
+  - component: {fileID: 114860921563433884}
   m_Layer: 0
   m_Name: groundImpact
   m_TagString: ground
@@ -23965,7 +23965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToWait: 1
---- !u!114 &114810928705934544
+--- !u!114 &114860921563433884
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -23973,7 +23973,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70eb46c600e5d4d87a32e174bfd142de, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b9172ae5d2292f4da72ac3f20e8f47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 2
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  radius: 3
+  damageCount: 10
